@@ -1,10 +1,12 @@
 ## React Chrome Extension Boilerplate
-This Project was for create chrome extension boilerplate
+This Project was for create react typescript boilerplate
+Original - Create React App
 It include:
 1. React - Typescript
 2. Redux - (Redux Thunk & Redux-Observable)
 3. React Router
 4. RxJS
+5. MaterialUI
 
 ## Available Scripts
 
