@@ -6,7 +6,7 @@ It include:
 2. Redux - (Redux Thunk & Redux-Observable)
 3. React Router
 4. RxJS
-5. MaterialUI
+5. Material UI
 
 ## Available Scripts
 
