@@ -6,9 +6,12 @@ import  NotFound from './NotFound'
 import { RootProps } from '../types/common'
 import { History } from 'history'
 import { ConnectedRouter } from 'connected-react-router'
+import Header from '../components/Header'
 
 const App: React.FC<RootProps> = ({ history }: { history: History }) => {
     return (
+        <>
+        <Header />
         <ConnectedRouter history={history}>
             <Switch>
                 <Route exact path="/home" component={Home} />
@@ -17,6 +20,8 @@ const App: React.FC<RootProps> = ({ history }: { history: History }) => {
                 <Route component={NotFound}/>
             </Switch>
         </ConnectedRouter>
+        </>
+
     )
 }
 

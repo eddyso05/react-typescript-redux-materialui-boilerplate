@@ -4,13 +4,17 @@ import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store ,{history} from './redux/store'
+import { ThemeProvider } from '@material-ui/core/styles';
 import { RootProps } from './types/common'
+import theme from './utils/theme';
 
 const render = (Component: React.FC<RootProps>)  => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
-        <Component history={history} />
+        <ThemeProvider theme={theme}>
+          <Component history={history} />
+        </ThemeProvider>
       </Provider>
     </React.StrictMode>,
     document.getElementById('root')

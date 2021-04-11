@@ -1,6 +1,5 @@
 import React from 'react'
 import GlobalNav from '../components/GlobalNav'
-
 const Home = () => {
     return (
         <>
