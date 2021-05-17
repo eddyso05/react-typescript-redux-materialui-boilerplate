@@ -10,13 +10,11 @@ import theme from './utils/theme';
 
 const render = (Component: React.FC<RootProps>)  => {
   ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <Component history={history} />
-        </ThemeProvider>
-      </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Component history={history} />
+      </ThemeProvider>
+    </Provider>,
     document.getElementById('root')
   );
 }

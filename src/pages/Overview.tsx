@@ -1,11 +1,12 @@
 import React from 'react'
-import GlobalNav from '../components/GlobalNav'
+import Header from '../components/Header'
 
 const Overview = () => {
     return (
         <>
-            <GlobalNav activeItem="renderProps"/>
-            <h1>Overview</h1>
+            <Header>
+                <h1>Overview</h1>
+            </Header>
         </>
     )
 }
