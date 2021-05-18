@@ -25,6 +25,11 @@ import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import classNames from "classnames";
+import {
+  Person as AccountIcon,
+  Search as SearchIcon,
+} from "@material-ui/icons";
 
 const drawerWidth = 240;
 
@@ -102,7 +107,60 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     icon : {
       marginRight:'10px'
-    }
+    },
+    headerMenu: {
+      marginTop: theme.spacing(7),
+    },
+    headerMenuList: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    headerMenuItem: {
+      "&:hover, &:focus": {
+        // backgroundColor: theme.palette.background.light,
+        // color: "white",
+      }
+    },
+    profileMenu: {
+      minWidth: 265,
+    },
+    profileMenuUser: {
+      display: "flex",
+      flexDirection: "column",
+      padding: theme.spacing(2),
+    },
+    profileMenuItem: {
+      color: theme.palette.text.hint,
+    },
+    profileMenuIcon: {
+      marginRight: theme.spacing(2),
+      color: theme.palette.text.hint,
+      '&:hover': {
+        color: theme.palette.primary.main,
+      }
+    },
+    profileMenuLink: {
+      fontSize: 16,
+      textDecoration: "none",
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
+    messageNotification: {
+      height: "auto",
+      display: "flex",
+      alignItems: "center",
+    },
+    messageNotificationSide: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginRight: theme.spacing(2),
+    },
+    messageNotificationBodySide: {
+      alignItems: "flex-start",
+      marginRight: 0,
+  },
   }),
 );
 
@@ -175,20 +233,64 @@ export default function MiniDrawer({ children, ...props }: AuxProps) {
                 </Avatar>
             </Button>
 
-          <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
+            <Menu
+              id="profile-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              className={classes.headerMenu}
+              classes={{ paper: classes.profileMenu }}
+              disableAutoFocusItem
             >
-                {/* <MenuItem onClick={() => {dispatch(push('/profile'))}}>
-                    <ExitToAppIcon className={classes.icon}/> Profile
-                </MenuItem> */}
-                <MenuItem onClick={logOut}> 
-                  <ExitToAppIcon className={classes.icon}/> Logout
-                </MenuItem>
-            </Menu>
+              <div className={classes.profileMenuUser}>
+                <Typography>
+                  John Smith
+                </Typography>
+                <Typography
+                  className={classes.profileMenuLink}
+                  component="a"
+                  color="primary"
+                >
+                  Reacboilerplate.com
+                </Typography>
+          </div>
+          
+          <MenuItem
+            className={classNames(
+              classes.profileMenuItem,
+              classes.headerMenuItem,
+            )}
+          >
+            <AccountIcon className={classes.profileMenuIcon} /> Profile
+          </MenuItem>
+
+          <MenuItem
+            className={classNames(
+              classes.profileMenuItem,
+              classes.headerMenuItem,
+            )}
+          >
+            <AccountIcon className={classes.profileMenuIcon} /> Tasks
+          </MenuItem>
+
+          <MenuItem
+            className={classNames(
+              classes.profileMenuItem,
+              classes.headerMenuItem,
+            )}
+          >
+            <AccountIcon className={classes.profileMenuIcon} /> Messages
+          </MenuItem>
+          <div className={classes.profileMenuUser} onClick={logOut}>
+            <Typography
+              className={classes.profileMenuLink}
+              color="primary"
+            >
+              Sign Out
+            </Typography>
+          </div>
+        </Menu>
           </div>
         </Toolbar>
       </AppBar>
