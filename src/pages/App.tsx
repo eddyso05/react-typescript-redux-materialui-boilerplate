@@ -7,7 +7,7 @@ import { RootProps } from '../types/common'
 import { History } from 'history'
 import { ConnectedRouter } from 'connected-react-router'
 import Login from './Login'
-
+import Home from './Home'
 const App: React.FC<RootProps> = ({ history }: { history: History }) => {
     return (
         <>
@@ -16,7 +16,7 @@ const App: React.FC<RootProps> = ({ history }: { history: History }) => {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/overview" component={Overview} />
-                <Route exact path="/" component={Login} />
+                <Route exact path="/" component={Home} />
                 <Route component={Dashboard}/>
             </Switch>
         </ConnectedRouter>
